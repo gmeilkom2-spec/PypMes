@@ -41,11 +41,18 @@ onChildAdded(messagesRef, (data) => {
     const div = document.createElement("div");
     div.style.marginBottom = "10px";
 
-    // Проверка на Miron и галочку
-    const isMiron = msg.name.toLowerCase() === "miron";
-    const badge = isMiron ? `<img src="images (14).png" style="width:16px; margin-left:5px;">` : "";
+    // --- ОБНОВЛЕННАЯ ЛОГИКА ГАЛОЧЕК ---
+    // Список никнеймов, которым нужна галочка (все маленькими буквами)
+    const verifiedUsers = ["miron", "aleksia", "gleb", "diana"];
+    
+    // Проверяем, есть ли текущий пользователь в списке
+    const isVerified = verifiedUsers.includes(msg.name.toLowerCase());
+    
+    // Если в списке — добавляем картинку
+    const badge = isVerified ? `<img src="images (14).png" style="width:16px; margin-left:5px; vertical-align:middle;">` : "";
+    // ----------------------------------
 
     div.innerHTML = `<strong>${msg.name}${badge}:</strong> ${msg.text}`;
     messagesDiv.appendChild(div);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight; // Автопрокрутка вниз
+    messagesDiv.scrollTop = messagesDiv.scrollHeight; 
 });
