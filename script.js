@@ -4,7 +4,7 @@ import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/fi
 // ТВОИ НАСТРОЙКИ FIREBASE (возьми их в консоли Firebase)
 const firebaseConfig = {
     apiKey: "AIzaSyB_nSjHAm1M_c8MBrToZ9GCp8fXS6DMEv8",
-    databaseURL: "pypms-682bc.firebaseapp.com",
+    databaseURL: "https://pypms-682bc-default-rtdb.europe-west1.firebasedatabase.app/",
     projectId: "pypms-682bc",
     appId: "1:84311636378:web:f283c2ed23f5d7e62aa223"
 };
