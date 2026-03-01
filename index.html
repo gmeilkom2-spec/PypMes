@@ -2,20 +2,27 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pyp</title> Messenger</title>
+    <title>Miron Messenger</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="chat-container">
-        <div id="messages"></div>
-        <div class="input-group">
-            <input type="text" id="username" placeholder="Твой ник...">
-            <input type="text" id="messageInput" placeholder="Сообщение...">
-            <button id="sendBtn">Отправить</button>
-        </div>
-    </div>
 
-    <script type="module" src="script.js"></script>
+<div id="auth-container">
+    <h2>Вход в мессенджер</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+    <button onclick="register()" style="background:#555;">Регистрация</button>
+</div>
+
+<div id="chat-container" style="display:none;">
+    <div id="messages"></div>
+    <div class="input-group">
+        <input type="text" id="messageInput" placeholder="Сообщение...">
+        <button id="sendBtn">Отправить</button>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>
