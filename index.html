@@ -2,17 +2,30 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Miron Messenger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web Clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="chat-container">
-    <div id="messages"></div>
-    <div class="input-group">
-        <input type="text" id="username" placeholder="Твое имя...">
-        <input type="text" id="messageInput" placeholder="Сообщение...">
-        <button id="sendBtn">Отправить</button>
+<div class="tg-container">
+    <div class="tg-header">
+        <div class="tg-header-info">
+            <span class="tg-chat-name">Общий чат</span>
+            <span class="tg-chat-status">в сети</span>
+        </div>
+    </div>
+    
+    <div id="messages" class="tg-chat-window"></div>
+
+    <div class="tg-input-area">
+        <input type="text" id="username" placeholder="Имя" class="tg-name-input">
+        <input type="text" id="messageInput" placeholder="Написать сообщение..." class="tg-msg-input">
+        <button id="sendBtn" class="tg-send-btn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+            </svg>
+        </button>
     </div>
 </div>
 
