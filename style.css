@@ -1,11 +1,82 @@
-body { font-family: sans-serif; background: #e5ddd5; margin: 0; }
-#chat-container { max-width: 500px; margin: 20px auto; background: white; height: 90vh; display: flex; flex-direction: column; }
-#messages { flex: 1; overflow-y: auto; padding: 15px; }
-.msg-item { display: flex; align-items: center; background: #f0f0f0; padding: 10px; margin-bottom: 8px; border-radius: 8px; }
-.avatar { font-size: 24px; margin-right: 10px; }
-.badge { width: 16px; height: 16px; margin-left: 5px; vertical-align: middle; }
-.input-group { display: flex; padding: 10px; background: #eee; }
-input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-#username { width: 80px; margin-right: 5px; }
-#messageInput { flex: 1; margin-right: 5px; }
-button { background: #25d366; color: white; border: none; padding: 8px 15px; cursor: pointer; }
+* { box-sizing: border-box; }
+body { 
+    margin: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #90abd0; /* Цвет фона за пределами чата */
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.tg-container {
+    width: 100%;
+    max-width: 600px;
+    background: #e7ebf0; /* Классический фон чата Telegram */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.tg-header {
+    background: #517da2;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.tg-chat-name { font-weight: bold; display: block; }
+.tg-chat-status { font-size: 12px; opacity: 0.8; }
+
+.tg-chat-window {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); /* Паттерн фона */
+}
+
+/* Облако сообщения */
+.msg-item {
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.avatar { font-size: 20px; margin-right: 8px; }
+.content b { color: #3390ec; font-size: 14px; }
+.content span { display: block; margin-top: 2px; color: #000; }
+
+.badge { width: 14px; height: 14px; margin-left: 3px; vertical-align: baseline; }
+
+.tg-input-area {
+    background: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tg-name-input { width: 80px; border: none; background: #f1f1f1; padding: 8px; border-radius: 5px; outline: none; }
+.tg-msg-input { flex: 1; border: none; outline: none; font-size: 16px; }
+
+.tg-send-btn {
+    background: none;
+    border: none;
+    color: #3390ec;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.1s;
+}
+
+.tg-send-btn:active { transform: scale(0.9); }
