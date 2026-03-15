@@ -36,7 +36,7 @@ onChildAdded(messagesRef, (data) => {
     div.className = "msg-item";
 
     // Логика галочек для избранных аккаунтов
-    const verifiedUsers = ["miron", "aleksia", "gleb", "diana"];
+    const verifiedUsers = ["Miron", "Aleksia", "Gleb", "A4"];
     const isVerified = verifiedUsers.includes(msg.name.toLowerCase());
     const badge = isVerified ? `<img src="images (14).png" class="badge">` : "";
 
