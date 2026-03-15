@@ -17,8 +17,6 @@ const msgInput = document.getElementById("messageInput");
 const userInput = document.getElementById("username");
 const messagesDiv = document.getElementById("messages");
 
-const emojis = [':cat:', ':frog:', ':panda_face:', ':fox:', ':lion_face:', ':owl:'];
-
 sendBtn.onclick = () => {
     const name = userInput.value.trim() || "Аноним";
     const text = msgInput.value.trim();
@@ -26,8 +24,7 @@ sendBtn.onclick = () => {
     if (text) {
         push(messagesRef, {
             name: name,
-            text: text,
-            emoji: emojis[Math.floor(Math.random() * emojis.length)]
+            text: text
         });
         msgInput.value = "";
     }
@@ -38,12 +35,13 @@ onChildAdded(messagesRef, (data) => {
     const div = document.createElement("div");
     div.className = "msg-item";
 
+    // Логика галочек для избранных аккаунтов
     const verifiedUsers = ["miron", "aleksia", "gleb", "diana"];
     const isVerified = verifiedUsers.includes(msg.name.toLowerCase());
     const badge = isVerified ? `<img src="images (14).png" class="badge">` : "";
 
+    // Теперь выводим только Имя и Текст
     div.innerHTML = `
-        <span class="avatar">${msg.emoji}</span>
         <div class="content">
             <b>${msg.name}${badge}</b>
             <span>${msg.text}</span>
